@@ -1,0 +1,89 @@
+{
+  "overview": {
+    "total_students": 99,
+    "capacity_fraction": 0.2,
+    "num_selected": 20,
+    "average_need_score": 34.5,
+    "worst_group_recall": 0.5,
+    "fairness_gap": 0.333,
+    "overall_recall_at_capacity": 0.5556,
+    "brier_score": 0.059
+  },
+  "fairness": {
+    "groups": [
+      {
+        "attribute": "sex",
+        "group": "F",
+        "n_rows": 49,
+        "n_positives": 21,
+        "n_selected_positives": 12,
+        "eligible": true,
+        "recall": 0.571,
+        "status_label": "Eligible"
+      },
+      {
+        "attribute": "sex",
+        "group": "M",
+        "n_rows": 50,
+        "n_positives": 15,
+        "n_selected_positives": 8,
+        "eligible": true,
+        "recall": 0.533,
+        "status_label": "Eligible"
+      },
+      {
+        "attribute": "school",
+        "group": "GP",
+        "n_rows": 83,
+        "n_positives": 30,
+        "n_selected_positives": 15,
+        "eligible": true,
+        "recall": 0.5,
+        "status_label": "Eligible"
+      },
+      {
+        "attribute": "school",
+        "group": "MS",
+        "n_rows": 16,
+        "n_positives": 6,
+        "n_selected_positives": 5,
+        "eligible": true,
+        "recall": 0.833,
+        "status_label": "Eligible"
+      }
+    ],
+    "worst_group_recall": 0.5,
+    "fairness_gap": 0.333,
+    "metric_name": "Observed Recall Gap",
+    "pooling_rule": "R_min pooled across all eligible groups; fairness_gap evaluated intra-attribute only."
+  },
+  "robustness": {
+    "seeds_evaluated": 10,
+    "recall_at_capacity": {
+      "mean": 0.597,
+      "std": 0.072
+    },
+    "worst_group_recall": {
+      "mean": 0.513,
+      "std": 0.09
+    },
+    "fairness_gap": {
+      "mean": 0.178,
+      "std": 0.11
+    },
+    "brier_score": {
+      "mean": 0.055,
+      "std": 0.005
+    },
+    "interpretability_note": "Because the UCI Student dataset has 395 total students (~99 per validation split), metrics will vary moderately across random partitions (e.g. fairness gap std ~0.10). The 10-seed aggregate confirms that Logistic Regression maintains consistent calibration (Brier score ~0.065) and reliable ~58% recall at top-20% capacity."
+  },
+  "meta": {
+    "dataset": "UCI Student Performance (mathematics)",
+    "total_rows": 395,
+    "train_rows": 296,
+    "val_rows": 99,
+    "model_type": "Logistic Regression with StandardScaler and OneHotEncoder",
+    "capacity_rule": "Exact ceil(0.20 * N)",
+    "evaluation_note": "Demo/development metrics evaluated on held-out public validation split."
+  }
+}

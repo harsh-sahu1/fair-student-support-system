@@ -1,0 +1,78 @@
+{
+  "dataset": {
+    "total_students": 1000,
+    "train_students": 750,
+    "test_students": 250,
+    "groups": [
+      "Group A",
+      "Group B",
+      "Group C"
+    ],
+    "true_need_rate_pct": 27.0,
+    "type": "Synthetic educational benchmark dataset (reproducible seed=42)"
+  },
+  "model": {
+    "type": "Logistic Regression with StandardScaler",
+    "test_classification_metrics": {
+      "accuracy": 0.828,
+      "precision": 0.643,
+      "recall": 0.806,
+      "f1_score": 0.715,
+      "roc_auc": 0.922,
+      "brier_score": 0.1162
+    },
+    "ranking_metrics": {
+      "precision_at_20pct": 0.825,
+      "recall_at_20pct": 0.611,
+      "ndcg_at_20pct": 0.855,
+      "capacity_k": 200,
+      "total_population": 1000
+    }
+  },
+  "capacity_and_fairness": {
+    "capacity_pct": 20.0,
+    "capacity_slots": 200,
+    "baseline_recall_gap_pct": 8.3,
+    "fairness_recall_gap_pct": 6.3,
+    "gap_reduction_pts": 2.0,
+    "selection_changes_count": 3,
+    "group_breakdown": [
+      {
+        "Eligible Group": "Group A",
+        "Group Size": 461,
+        "Baseline Selected": 88,
+        "Baseline Recall (%)": 60.2,
+        "Fairness Selected": 89,
+        "Fairness Recall (%)": 61.0,
+        "Recall Change (% pts)": 0.8
+      },
+      {
+        "Eligible Group": "Group B",
+        "Group Size": 340,
+        "Baseline Selected": 64,
+        "Baseline Recall (%)": 59.0,
+        "Fairness Selected": 66,
+        "Fairness Recall (%)": 61.0,
+        "Recall Change (% pts)": 2.0
+      },
+      {
+        "Eligible Group": "Group C",
+        "Group Size": 199,
+        "Baseline Selected": 48,
+        "Baseline Recall (%)": 67.3,
+        "Fairness Selected": 45,
+        "Fairness Recall (%)": 67.3,
+        "Recall Change (% pts)": 0.0
+      }
+    ]
+  },
+  "robustness": {
+    "mean_spearman_correlation": 1.0,
+    "mean_jaccard_selection_overlap": 0.951,
+    "mean_perturbed_fairness_gap": 5.6,
+    "baseline_fairness_gap": 8.3,
+    "unperturbed_fairness_gap": 6.3,
+    "n_simulations": 5,
+    "noise_scale_pct": 3.0
+  }
+}

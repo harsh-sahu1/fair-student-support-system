@@ -1,0 +1,5 @@
+attribute,group,total_rows,positive_rows,selected_count,true_positives,is_eligible,recall,recall_pct
+sex,F,208,75,47,47,True,0.6266666666666667,62.7
+sex,M,187,55,32,32,True,0.5818181818181818,58.2
+school,GP,349,113,68,68,True,0.6017699115044248,60.2
+school,MS,46,17,11,11,True,0.6470588235294118,64.7
