@@ -1,4 +1,4 @@
-﻿"""
+"""
 Application configuration for the Student Support AI backend.
 """
 
@@ -18,7 +18,10 @@ VALIDATION_PREDICTIONS_PATH = ARTIFACTS_DIR / "validation_predictions.json"
 DEFAULT_CAPACITY_FRACTION: float = float(os.getenv("DEFAULT_CAPACITY_FRACTION", "0.20"))
 
 # CORS settings
-CORS_ORIGINS_ENV = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173")
+CORS_ORIGINS_ENV = os.getenv(
+    "CORS_ORIGINS",
+    "http://localhost:5173,http://127.0.0.1:5173,https://harsh-sahu1.github.io,http://localhost:3000,http://localhost:8000"
+)
 CORS_ORIGINS: List[str] = [origin.strip() for origin in CORS_ORIGINS_ENV.split(",") if origin.strip()]
 
 # ML Feature schema

@@ -90,14 +90,16 @@ app = FastAPI(
     openapi_url="/openapi.json"
 )
 
-# Explicit CORS configuration (not wildcard)
+# Explicit CORS configuration supporting local dev and GitHub Pages
 app.add_middleware(
     CORSMiddleware,
     allow_origins=CORS_ORIGINS,
+    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1|.*\.github\.io)(:\d+)?",
     allow_credentials=True,
-    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 
 @app.exception_handler(RequestValidationError)
